@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, AlertController} from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
+import { AuthServiceProvider } from '../../providers/auth.service';
 
 /**
  * Generated class for the SignupPage page.
@@ -16,15 +17,54 @@ import { TabsPage } from '../tabs/tabs';
 })
 export class SignupPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  createSuccess = false;
+  registerCredentials = { firstName: '', lastName: '', email: '', age: '',address: '', mobileNumber: '', userType:'' };
+  constructor(private navCtrl: NavController, 
+              private alertCtrl: AlertController,
+              private auth: AuthServiceProvider
+            ) {
   }
 
   signup(){
-    this.navCtrl.push(TabsPage);
+    this.auth.register(this.registerCredentials).subscribe(success => {
+      if (success) {
+        if(success.status === "500" || success.status === "400"){
+          this.showPopup("Error", success.messageObject.message);
+          this.navCtrl.popToRoot();
+        } else {
+          this.showPopup("Success", success.messageObject.message);
+          this.createSuccess = true;
+        }
+      } else {
+        this.showPopup("Error", "Problem creating account.");
+      }
+    },
+      error => {
+        this.showPopup("Error", error);
+      });
+    
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignupPage');
+  }
+
+  showPopup(title, text) {
+    let alert = this.alertCtrl.create({
+      title: title,
+      subTitle: text,
+      buttons: [
+        {
+          text: 'OK',
+          handler: data => {
+            if (this.createSuccess) {
+              this.navCtrl.push(TabsPage);
+            }
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
 }
