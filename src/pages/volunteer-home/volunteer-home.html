@@ -1,0 +1,31 @@
+<ion-header>
+
+    <ion-navbar hideBackButton="true">
+      <ion-title>Volunteer Home page</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding>
+      <ion-card>
+        <ion-card-header>
+          <ion-icon name="document" color="buttonColor"></ion-icon>
+        </ion-card-header>
+          
+        <ion-card-content>
+          personal information
+        </ion-card-content>    
+      </ion-card>
+  
+      <ion-card (click)="reportEmergency()">
+        <ion-card-header>
+          <ion-icon name="medical" color="alertColor"></ion-icon>
+        </ion-card-header>
+            
+        <ion-card-content>
+          Report Emergency
+          </ion-card-content>
+      </ion-card>
+  </ion-content>
+  

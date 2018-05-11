@@ -43,7 +43,7 @@ export class AuthServiceProvider {
   public login(credentials) {
       let headers = new Headers();
       headers.append("Content-Type", "application/json");
-      headers.append("email", credentials.email);
+      headers.append("username", credentials.username);
       headers.append("password",credentials.password);
       return this.http.get(AuthServiceProvider.LOGIN_URL, {headers: headers}).map(response => response.json()); 
   }

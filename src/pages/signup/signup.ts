@@ -18,7 +18,7 @@ import { AuthServiceProvider } from '../../providers/auth.service';
 export class SignupPage {
 
   createSuccess = false;
-  registerCredentials = { firstName: '', lastName: '', email: '', age: '',address: '', mobileNumber: '', userType:'' };
+  registerCredentials = { name: '', email: '', mobileNumber: '', userType:'' };
   constructor(private navCtrl: NavController, 
               private alertCtrl: AlertController,
               private auth: AuthServiceProvider
@@ -28,6 +28,7 @@ export class SignupPage {
   signup(){
     this.auth.register(this.registerCredentials).subscribe(success => {
       if (success) {
+        console.log(this.registerCredentials.userType);
         if(success.status === "500" || success.status === "400"){
           this.showPopup("Error", success.messageObject.message);
           this.navCtrl.popToRoot();

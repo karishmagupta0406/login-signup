@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, AlertController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import { AuthServiceProvider } from '../../providers/auth.service'
+import { VictimHomePage } from '../victim-home/victim-home';
+import { VolunteerHomePage } from '../volunteer-home/volunteer-home';
 /**
  * Generated class for the LoginPage page.
  *
@@ -15,8 +17,9 @@ import { AuthServiceProvider } from '../../providers/auth.service'
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  createSuccess = false;
-  loginCredentials = { email: '', password: ''};
+  loginSuccess = false;
+  userType = '';
+  loginCredentials = { username: '', password: ''};
   constructor(private navCtrl: NavController, 
               private auth: AuthServiceProvider,
               private alertCtrl: AlertController) {
@@ -29,12 +32,14 @@ export class LoginPage {
   login(){
     this.auth.login(this.loginCredentials).subscribe(success => {
       if (success) {
+        console.log("my userType is ", success.data);
+        this.userType = success.data;
         if(success.status === "500" || success.status === "400"){
           this.showPopup("Error", success.messageObject.message);
           this.navCtrl.popToRoot();
         } else {
           this.showPopup("Success", success.messageObject.message);
-          this.createSuccess = true;
+          this.loginSuccess = true;
         }
       } else {
         this.showPopup("Error", "Problem in Login.");
@@ -55,8 +60,14 @@ export class LoginPage {
         {
           text: 'OK',
           handler: data => {
-            if (this.createSuccess) {
-              this.navCtrl.push(TabsPage);
+            if (this.loginSuccess) {
+              if(this.userType === 'Victim'){
+                this.navCtrl.setRoot(VictimHomePage);                
+                this.navCtrl.push(VictimHomePage);
+                
+              } else{
+              this.navCtrl.push(VolunteerHomePage);
+              }
             }
           }
         }

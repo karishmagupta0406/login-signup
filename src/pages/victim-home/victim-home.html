@@ -1,0 +1,50 @@
+<ion-header>
+
+  <ion-navbar hideBackButton="true">
+    <ion-title>victim Home page</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-card>
+      <ion-card-header>
+        <ion-icon name="document" color="buttonColor"></ion-icon>
+      </ion-card-header>
+        
+      <ion-card-content>
+        personal information
+      </ion-card-content>    
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-icon name="medkit" color="greenColor"></ion-icon>
+      </ion-card-header>
+            
+      <ion-card-content>
+        Medical History
+      </ion-card-content>     
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+          <ion-icon name="contacts" color="orangeColor"></ion-icon>
+      </ion-card-header>
+              
+      <ion-card-content>
+        Emergency Contact
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card (click)="reportEmergency()">
+      <ion-card-header>
+        <ion-icon name="medical" color="alertColor"></ion-icon>
+      </ion-card-header>
+          
+      <ion-card-content>
+        Report Emergency
+        </ion-card-content>
+    </ion-card>
+</ion-content>
