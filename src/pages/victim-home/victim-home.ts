@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ReportEmergencyPage } from '../report-emergency/report-emergency';
+import { EmergencyContactPage } from '../emergency-contact/emergency-contact';
+import { MedicalHistoryPage } from '../medical-history/medical-history';
 
 /**
  * Generated class for the VictimHomePage page.
@@ -25,6 +27,16 @@ export class VictimHomePage {
   reportEmergency(){
     console.log("Emergency occured!!");
     this.navCtrl.push(ReportEmergencyPage);
+  }
+
+  emergencyContact(){
+    console.log("navigate to emergency contact page");
+    this.navCtrl.push(EmergencyContactPage);
+  }
+
+  medicalHistory(){
+    console.log("navigate to Medical History page");
+    this.navCtrl.push(MedicalHistoryPage);
   }
 
 }

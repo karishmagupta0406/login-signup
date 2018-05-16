@@ -1,3 +1,4 @@
+
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -15,11 +16,14 @@ import { SignupPage } from '../pages/signup/signup';
 import { VictimHomePage } from '../pages/victim-home/victim-home';
 import { VolunteerHomePage } from '../pages/volunteer-home/volunteer-home';
 import { ReportEmergencyPage } from '../pages/report-emergency/report-emergency';
+import { EmergencyContactPage } from '../pages/emergency-contact/emergency-contact';
+import { MedicalHistoryPage } from '../pages/medical-history/medical-history';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthServiceProvider } from '../providers/auth.service';
 import { Geolocation } from '@ionic-native/geolocation';
+import { IonicStorageModule } from '@ionic/storage';
 
 
 @NgModule({
@@ -34,11 +38,14 @@ import { Geolocation } from '@ionic-native/geolocation';
     SignupPage,
     VictimHomePage,
     VolunteerHomePage,
-    ReportEmergencyPage
+    ReportEmergencyPage,
+    EmergencyContactPage,
+    MedicalHistoryPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -53,14 +60,17 @@ import { Geolocation } from '@ionic-native/geolocation';
     WelcomePage,
     VictimHomePage,
     VolunteerHomePage,
-    ReportEmergencyPage
+    ReportEmergencyPage,
+    EmergencyContactPage,
+    MedicalHistoryPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthServiceProvider,
-    Geolocation
+    Geolocation,
+    Storage
   ]
 })
 export class AppModule {}

@@ -13,7 +13,7 @@ import { VolunteerHomePage } from '../pages/volunteer-home/volunteer-home';
 export class MyApp {
   //once victim page completed uncomment this
     rootPage:any = WelcomePage;
-  //rootPage:any = VolunteerHomePage;
+  //rootPage:any = VictimHomePage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

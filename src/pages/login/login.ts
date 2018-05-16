@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Storage } from '@ionic/storage'
+
 import { IonicPage, NavController, AlertController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import { AuthServiceProvider } from '../../providers/auth.service'
@@ -19,10 +21,12 @@ import { VolunteerHomePage } from '../volunteer-home/volunteer-home';
 export class LoginPage {
   loginSuccess = false;
   userType = '';
+  loggedInUser = '';
   loginCredentials = { username: '', password: ''};
   constructor(private navCtrl: NavController, 
               private auth: AuthServiceProvider,
-              private alertCtrl: AlertController) {
+              private alertCtrl: AlertController,
+              private storage: Storage) {
   }
 
   ionViewDidLoad() {
@@ -30,15 +34,21 @@ export class LoginPage {
   }
 
   login(){
+    
     this.auth.login(this.loginCredentials).subscribe(success => {
       if (success) {
-        console.log("my userType is ", success.data);
         this.userType = success.data;
         if(success.status === "500" || success.status === "400"){
           this.showPopup("Error", success.messageObject.message);
           this.navCtrl.popToRoot();
         } else {
           this.showPopup("Success", success.messageObject.message);
+          this.storage.set('username',this.loginCredentials.username);
+          this.storage.get('username').then((val) =>{
+            console.log('login user is', val);
+            this.loggedInUser = val;
+          })
+          
           this.loginSuccess = true;
         }
       } else {
@@ -48,7 +58,6 @@ export class LoginPage {
       error => {
         this.showPopup("Error", error);
       });
-    // this.navCtrl.push(TabsPage,{},{animate: false});
   }
 
 
@@ -63,7 +72,7 @@ export class LoginPage {
             if (this.loginSuccess) {
               if(this.userType === 'Victim'){
                 this.navCtrl.setRoot(VictimHomePage);                
-                this.navCtrl.push(VictimHomePage);
+                this.navCtrl.push(VictimHomePage,{loggedInUser : this.loggedInUser});
                 
               } else{
               this.navCtrl.push(VolunteerHomePage);

@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, AlertController} from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import { AuthServiceProvider } from '../../providers/auth.service';
+import { VictimHomePage } from '../victim-home/victim-home';
+import { VolunteerHomePage } from '../volunteer-home/volunteer-home';
 
 /**
  * Generated class for the SignupPage page.
@@ -59,7 +61,13 @@ export class SignupPage {
           text: 'OK',
           handler: data => {
             if (this.createSuccess) {
-              this.navCtrl.push(TabsPage);
+              if(this.registerCredentials.userType === 'Victim'){
+                this.navCtrl.setRoot(VictimHomePage);                
+                this.navCtrl.push(VictimHomePage,{loggedInUser : this.registerCredentials.email});
+                
+              } else{
+              this.navCtrl.push(VolunteerHomePage);
+              }
             }
           }
         }

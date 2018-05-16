@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ReportEmergencyPage } from '../report-emergency/report-emergency';
+import { EmergencyContactPage } from '../emergency-contact/emergency-contact';
 
 /**
  * Generated class for the VolunteerHomePage page.
@@ -26,6 +27,10 @@ export class VolunteerHomePage {
   reportEmergency(){
     console.log("Emergency occured!!");
     this.navCtrl.push(ReportEmergencyPage);
+  }
+
+  notifications(){
+    console.log("notifications are here!!");
   }
 
 }
