@@ -1,14 +1,65 @@
 <ion-header>
 
   <ion-navbar hideBackButton="true">
-    <ion-title>victim Home page</ion-title>
+    <ion-title>Victim Home page</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-    <ion-card>
+    <div ion-row>
+        <div ion-col width-50 (click)="personalInfo()">
+            <ion-card style="height: 130px;">
+                <ion-card-header>
+                  <ion-icon name="document" color="buttonColor"></ion-icon>
+                </ion-card-header>
+                  
+                <ion-card-content>
+                  personal information
+                </ion-card-content>    
+              </ion-card>          
+        </div>
+
+        <div ion-col width-50>
+            <ion-card (click)="medicalHistory()" style="height: 130px;">
+                <ion-card-header>
+                  <ion-icon name="medkit" color="greenColor"></ion-icon>
+                </ion-card-header>
+                      
+                <ion-card-content>
+                  Medical History
+                </ion-card-content>     
+              </ion-card>          
+        </div>
+    </div>
+    <div ion-row>
+        <div ion-col width-50>
+            <ion-card (click)="emergencyContact()" style="height: 130px;">
+                <ion-card-header>
+                    <ion-icon name="contacts" color="orangeColor"></ion-icon>
+                </ion-card-header>
+                        
+                <ion-card-content>
+                  Emergency Contact
+                </ion-card-content>
+              </ion-card>          
+        </div>
+
+        <div ion-col width-50>
+            <ion-card (click)="reportEmergency()" style="height: 130px;">
+                <ion-card-header>
+                  <ion-icon name="medical" color="alertColor"></ion-icon>
+                </ion-card-header>
+                    
+                <ion-card-content>
+                  Report Emergency
+                  </ion-card-content>
+              </ion-card>
+        </div>
+    </div>
+
+    <!-- <ion-card>
       <ion-card-header>
         <ion-icon name="document" color="buttonColor"></ion-icon>
       </ion-card-header>
@@ -46,5 +97,5 @@
       <ion-card-content>
         Report Emergency
         </ion-card-content>
-    </ion-card>
+    </ion-card> -->
 </ion-content>

@@ -37,16 +37,17 @@ $colors: (
   primary:          #2A2C43,
   secondary:        #677077,
   lightprimary:     #B5B5B7,
-  light:            #f4f4f4,
+  light:            #00CED1,
   dark:             #222,
   energy:           #e8f7ef,
   buttonColor:      blue,
   alertColor:       red,
   greenColor:       green,
-  orangeColor:      orange
+  orangeColor:      orange,
+  
 );
 
-$toolbar-background: color($colors, primary);
+$toolbar-background: color($colors, light);
 
 // App iOS Variables
 // --------------------------------------------------

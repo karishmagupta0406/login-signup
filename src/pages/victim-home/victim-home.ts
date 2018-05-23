@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ReportEmergencyPage } from '../report-emergency/report-emergency';
 import { EmergencyContactPage } from '../emergency-contact/emergency-contact';
 import { MedicalHistoryPage } from '../medical-history/medical-history';
+import { PersonalInfoPage } from '../personal-info/personal-info';
 
 /**
  * Generated class for the VictimHomePage page.
@@ -37,6 +38,11 @@ export class VictimHomePage {
   medicalHistory(){
     console.log("navigate to Medical History page");
     this.navCtrl.push(MedicalHistoryPage);
+  }
+
+  personalInfo(){
+    console.log("navigating to personal information page");
+    this.navCtrl.push(PersonalInfoPage);
   }
 
 }

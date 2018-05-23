@@ -18,6 +18,7 @@ import { VolunteerHomePage } from '../pages/volunteer-home/volunteer-home';
 import { ReportEmergencyPage } from '../pages/report-emergency/report-emergency';
 import { EmergencyContactPage } from '../pages/emergency-contact/emergency-contact';
 import { MedicalHistoryPage } from '../pages/medical-history/medical-history';
+import { PersonalInfoPage } from '../pages/personal-info/personal-info';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -40,7 +41,8 @@ import { IonicStorageModule } from '@ionic/storage';
     VolunteerHomePage,
     ReportEmergencyPage,
     EmergencyContactPage,
-    MedicalHistoryPage
+    MedicalHistoryPage,
+    PersonalInfoPage
   ],
   imports: [
     BrowserModule,
@@ -62,7 +64,8 @@ import { IonicStorageModule } from '@ionic/storage';
     VolunteerHomePage,
     ReportEmergencyPage,
     EmergencyContactPage,
-    MedicalHistoryPage
+    MedicalHistoryPage,
+    PersonalInfoPage
   ],
   providers: [
     StatusBar,

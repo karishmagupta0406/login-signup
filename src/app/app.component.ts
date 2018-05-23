@@ -6,14 +6,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { WelcomePage } from '../pages/welcome/welcome';
 import { VictimHomePage } from '../pages/victim-home/victim-home';
 import { VolunteerHomePage } from '../pages/volunteer-home/volunteer-home';
+import { MedicalHistoryPage } from '../pages/medical-history/medical-history';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   //once victim page completed uncomment this
-    rootPage:any = WelcomePage;
-  //rootPage:any = VictimHomePage;
+    //rootPage:any = WelcomePage;
+  rootPage:any = VolunteerHomePage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
