@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "963712516744",
+    "firebase_url": "https://rogers-erx.firebaseio.com",
+    "project_id": "rogers-erx",
+    "storage_bucket": "rogers-erx.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:963712516744:android:d55afe9bd1334d44",
+        "android_client_info": {
+          "package_name": "com.harman.rogers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "963712516744-oa7p0rlf6o9ceid2p2kgqjghmuubbgm0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCECshqLctDyY-VFJwvUaIYpL442ESTyxA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

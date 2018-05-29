@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ReportEmergencyPage } from '../report-emergency/report-emergency';
 import { EmergencyContactPage } from '../emergency-contact/emergency-contact';
 import { PersonalInfoPage } from '../personal-info/personal-info';
+import { NotificationsPage } from '../notifications/notifications';
 
 /**
  * Generated class for the VolunteerHomePage page.
@@ -31,6 +32,7 @@ export class VolunteerHomePage {
   }
 
   notifications(){
+    this.navCtrl.push(NotificationsPage);
     console.log("notifications are here!!");
   }
 

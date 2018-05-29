@@ -5,9 +5,10 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AuthServiceProvider {
 
-  static readonly REGISTER_URL = "http://10.97.7.173:8080/erx/registerUser";
-  static readonly LOGIN_URL = "http://10.97.7.173:8080/erx/login";
-  static readonly EmergencyContact_URL = "http://10.97.7.173:8080/erx/registerEmergencyContacts";
+  static readonly REGISTER_URL = "http://10.97.6.127:8080/erx/registerUser";
+  static readonly LOGIN_URL = "http://10.97.6.127:8080/erx/login";
+  static readonly EmergencyContact_URL = "http://10.97.6.127:8080/erx/registerEmergencyContacts";
+  static readonly pushNotification_URL = "http://10.97.6.127:8080/erx/notification/sendnotification"
   
   constructor(public http: Http) {}
   public register(credentials) {
@@ -30,5 +31,13 @@ export class AuthServiceProvider {
       headers.append("Content-Type", "application/json");
       return this.http.put(AuthServiceProvider.EmergencyContact_URL, JSON.stringify(data), {headers: headers}).map(Response => Response.json());
   }
+
+  public emergencyAlert(){
+    let headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    return this.http.get(AuthServiceProvider.pushNotification_URL, {headers: headers}).map(Response => Response.json());
+  }
+
+
 
 }

@@ -26,9 +26,11 @@
       </ion-item>
       <ion-row>
         <ion-col center text-center>
-          <button ion-button full color="lightText" [disabled]="!loginForm.form.valid" (click)="login()">Log in</button>
+          <button ion-button full color="light" round [disabled]="!loginForm.form.valid" (click)="login()">Log in</button>
         </ion-col>
       </ion-row>
     </ion-list>
-</form>
+  </form>
+  <p style="text-align: center;">Not registered yet? Please <a href='#' style="text-decoration-style: none;" (click)="directToSignUp()"> <span style="color:blue;">Sign Up</span></a></p>
+
 </ion-content>

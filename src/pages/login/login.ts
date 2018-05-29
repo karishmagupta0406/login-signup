@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { Storage } from '@ionic/storage'
+import { Storage } from '@ionic/storage';
 
 import { IonicPage, NavController, AlertController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import { AuthServiceProvider } from '../../providers/auth.service'
 import { VictimHomePage } from '../victim-home/victim-home';
 import { VolunteerHomePage } from '../volunteer-home/volunteer-home';
+import { SignupPage } from '../signup/signup';
 /**
  * Generated class for the LoginPage page.
  *
@@ -44,8 +45,10 @@ export class LoginPage {
         } else {
           this.showPopup("Success", success.messageObject.message);
           this.storage.set('username',this.loginCredentials.username);
+          this.storage.set('isLogged',true);
+          this.storage.set('userType',this.userType);
+
           this.storage.get('username').then((val) =>{
-            console.log('login user is', val);
             this.loggedInUser = val;
           })
           
@@ -58,6 +61,10 @@ export class LoginPage {
       error => {
         this.showPopup("Error", error);
       });
+  }
+
+  directToSignUp(){
+    this.navCtrl.push(SignupPage);
   }
 
 

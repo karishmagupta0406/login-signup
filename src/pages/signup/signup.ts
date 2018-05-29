@@ -4,6 +4,7 @@ import { TabsPage } from '../tabs/tabs';
 import { AuthServiceProvider } from '../../providers/auth.service';
 import { VictimHomePage } from '../victim-home/victim-home';
 import { VolunteerHomePage } from '../volunteer-home/volunteer-home';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the SignupPage page.
@@ -20,14 +21,21 @@ import { VolunteerHomePage } from '../volunteer-home/volunteer-home';
 export class SignupPage {
 
   createSuccess = false;
-  registerCredentials = { name: '', email: '', mobileNumber: '', userType:'' };
+  registerCredentials = { name: '', email: '', mobileNumber: '', userType:'', token : ''};
   constructor(private navCtrl: NavController, 
               private alertCtrl: AlertController,
-              private auth: AuthServiceProvider
+              private auth: AuthServiceProvider,
+              private storage: Storage
             ) {
   }
 
   signup(){
+    this.storage.get('token').then((val) => {
+      console.log('Token is', val);
+      this.registerCredentials.token = val;
+    });
+    console.log(this.registerCredentials);
+
     this.auth.register(this.registerCredentials).subscribe(success => {
       if (success) {
         console.log(this.registerCredentials.userType);
