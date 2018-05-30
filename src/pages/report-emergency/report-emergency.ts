@@ -18,9 +18,10 @@ import { AuthServiceProvider } from '../../providers/auth.service';
 })
 export class ReportEmergencyPage {
 
-  constructor(private navCtrl: NavController, 
-              private navParams: NavParams,
-              private geolocation: Geolocation,
+  constructor(
+              //private navCtrl: NavController, 
+              //private navParams: NavParams,
+              //private geolocation: Geolocation,
               private auth: AuthServiceProvider) {
   }
 
@@ -29,6 +30,10 @@ export class ReportEmergencyPage {
   }
 
   emergencyAlert(){
+
+    //To get current location
+
+    
     // this.geolocation.getCurrentPosition().then((resp) => {
     //   // resp.coords.latitude
     //   // resp.coords.longitude

@@ -7,6 +7,8 @@ import { HttpModule } from '@angular/http';
 import { } from 'ionic-na'
 import { FCM } from '@ionic-native/fcm';
 import { Vibration } from '@ionic-native/vibration';
+import { LocalNotifications } from '@ionic-native/local-notifications';
+
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -21,7 +23,7 @@ import { ReportEmergencyPage } from '../pages/report-emergency/report-emergency'
 import { EmergencyContactPage } from '../pages/emergency-contact/emergency-contact';
 import { MedicalHistoryPage } from '../pages/medical-history/medical-history';
 import { PersonalInfoPage } from '../pages/personal-info/personal-info';
-import { NotificationsPage } from '../pages/notifications/notifications'
+import { NotificationsPage } from '../pages/notifications/notifications';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -95,6 +97,7 @@ export function mqttServiceFactory() {
     Storage,
     AuthServiceProvider,
     Vibration,
+    LocalNotifications,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

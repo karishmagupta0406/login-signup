@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
 
   <ion-navbar>
     <ion-title>Medical History</ion-title>
@@ -56,4 +56,84 @@
         </ion-card-content>
     
       </ion-card>
+</ion-content> -->
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Medical History</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+
+      <ion-card-header>
+        <ion-item>
+          Diseases
+          <button ion-button outline item-end icon-left round color="primary" (click)="addDiseases()">
+            <ion-icon name="add-circle"></ion-icon>
+            Add
+          </button>
+        </ion-item>        
+      </ion-card-header>
+  
+      <ion-card-content>
+        <ion-list>
+          <ion-item-sliding *ngFor="let disease of diseases; let index=index">
+            <ion-item>
+            {{disease}}
+            </ion-item>
+            <ion-item-options side="right">
+              <button color="default" ion-button (click)="deleteDisease(index)">
+                <ion-icon name="trash"></ion-icon>
+              </button>
+            </ion-item-options>
+          </ion-item-sliding>
+          
+        </ion-list>
+      </ion-card-content>
+  
+    </ion-card><br>
+
+    <ion-card full>
+
+        <ion-card-header>
+          <ion-item>
+            Medicine
+            <button ion-button outline item-end icon-left round (click)="addMedicines()">
+              <ion-icon name="add-circle"></ion-icon>
+              Add
+            </button>
+          </ion-item>        
+        </ion-card-header>
+    
+        <ion-card-content>
+          <ion-list>
+          <ion-item-sliding *ngFor="let medicine of medicines; let index=index">
+            <ion-item>
+            {{medicine}}
+            </ion-item>
+            <ion-item-options side="right">
+              <button color="default" ion-button (click)="deleteMedicine(index)">
+                <ion-icon name="trash"></ion-icon>
+              </button>
+            </ion-item-options>
+          </ion-item-sliding>
+          
+        </ion-list>
+        </ion-card-content>
+    
+      </ion-card><br><br>
+
+      <ion-row>
+        <button color="default" ion-button full round color="light">
+        SAVE
+        </button>
+      </ion-row>
+    
+
 </ion-content>
+
