@@ -14,16 +14,16 @@
 
 
 <ion-content padding>
-  	<ion-card *ngFor="let todo of todos">
+  	<ion-card *ngFor="let notification of notifications; let todoIndex=index">
         <ion-row>
             <ion-col>
               <ion-item>
-                <h4>{{todo}}</h4>
+                <h4 color="primary">{{notification}}</h4>
               </ion-item>
             </ion-col>
             <ion-col >
-              <ion-item *ngFor="let todo of todos; let todoIndex=index">
-                <button color="light" ion-button round (click)="loadMap()">Accept</button>
+              <ion-item>
+                <button color="light" ion-button round (click)="loadMap(notification)">Accept</button>
                 <button ion-button color="energy" round (click)="archiveTodo(todoIndex)">Decline</button>
               </ion-item>
             </ion-col>

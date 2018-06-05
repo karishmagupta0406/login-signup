@@ -21,8 +21,10 @@
     "@angular/http": "5.2.10",
     "@angular/platform-browser": "5.2.10",
     "@angular/platform-browser-dynamic": "5.2.10",
+    "@ionic-native/background-mode": "^4.7.0",
     "@ionic-native/badge": "^4.7.0",
-    "@ionic-native/core": "4.7.0",
+    "@ionic-native/core": "^4.7.0",
+    "@ionic-native/device": "^4.7.0",
     "@ionic-native/fcm": "^4.7.0",
     "@ionic-native/geolocation": "^4.7.0",
     "@ionic-native/local-notifications": "^4.7.0",
@@ -33,6 +35,7 @@
     "@ionic/storage": "2.1.3",
     "cordova-android": "7.0.0",
     "cordova-browser": "5.0.3",
+    "cordova-plugin-background-mode": "^0.7.2",
     "cordova-plugin-badge": "^0.8.7",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-fcm": "^2.1.2",
@@ -43,6 +46,7 @@
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-vibration": "^3.1.0",
     "cordova-plugin-whitelist": "^1.3.3",
+    "firebase": "^4.8.0",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
     "ngx-mqtt": "^5.4.0",
@@ -68,7 +72,8 @@
       "cordova-plugin-fcm": {},
       "cordova-plugin-vibration": {},
       "cordova-plugin-badge": {},
-      "cordova-plugin-local-notification": {}
+      "cordova-plugin-local-notification": {},
+      "cordova-plugin-background-mode": {}
     },
     "platforms": [
       "browser",

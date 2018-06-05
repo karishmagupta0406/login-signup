@@ -8,7 +8,7 @@ import { } from 'ionic-na'
 import { FCM } from '@ionic-native/fcm';
 import { Vibration } from '@ionic-native/vibration';
 import { LocalNotifications } from '@ionic-native/local-notifications';
-
+import { Device } from '@ionic-native/device';
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -24,6 +24,7 @@ import { EmergencyContactPage } from '../pages/emergency-contact/emergency-conta
 import { MedicalHistoryPage } from '../pages/medical-history/medical-history';
 import { PersonalInfoPage } from '../pages/personal-info/personal-info';
 import { NotificationsPage } from '../pages/notifications/notifications';
+import { MapPage } from '../pages/map/map';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -59,7 +60,8 @@ export function mqttServiceFactory() {
     EmergencyContactPage,
     MedicalHistoryPage,
     PersonalInfoPage,
-    NotificationsPage
+    NotificationsPage,
+    MapPage
   ],
   imports: [
     BrowserModule,
@@ -87,7 +89,8 @@ export function mqttServiceFactory() {
     EmergencyContactPage,
     MedicalHistoryPage,
     PersonalInfoPage,
-    NotificationsPage
+    NotificationsPage,
+    MapPage
   ],
   providers: [
     StatusBar,
@@ -97,6 +100,7 @@ export function mqttServiceFactory() {
     Storage,
     AuthServiceProvider,
     Vibration,
+    Device,
     LocalNotifications,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

@@ -20,6 +20,7 @@ import { NotificationsPage } from '../notifications/notifications';
 export class VolunteerHomePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    
   }
 
   ionViewDidLoad() {
