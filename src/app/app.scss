@@ -14,3 +14,201 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.text-center{
+    text-align: center;}
+.header{
+    // position: relative;
+   .toolbar{
+        min-height: 85px;
+    }
+    .toolbar-background-md{
+        background: #D05A68;
+        border: #D05A68;
+    }
+    &:after{
+        content: '';
+        height: 30px;
+        position: absolute;
+        bottom: -28px;
+        background: #D05A68;
+        left: 0;
+        right: 0;
+        border-bottom-left-radius: 50% 35%;
+        border-bottom-right-radius: 50% 35%;
+    }
+}
+.logo{
+    float: left;
+    &.text-center{
+        float: none;
+        margin-top:25px;
+    }
+}
+// .toolbar-title-md{
+//     padding: 25px 0 0 0;
+// }
+ion-header{
+    z-index: 150;
+    height:auto!important;
+}
+#welcome{
+    & > .scroll-content{
+        top: -25px;
+       
+    }
+    button{
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0px 0px 4px 5px rgba(208, 90, 104, 0.1);
+        color: #D05A68;
+        font-size: 16px;
+        padding:0 2rem;
+        width: auto;
+        margin: 0;
+        display: inline-block;
+        min-width: 120px;
+        height: 35px;
+    }
+}
+// .ion-page {
+//     & > .content{
+//         margin-top:40px
+//     }
+// }
+.heading{
+    display: inline-block;
+    position: absolute;
+    bottom: -42px;
+    z-index: 11;
+    left: 0;
+    right: 0;
+    h1{
+        margin-bottom: 0;
+        margin-top: 10px;
+        display: inline-block;
+        background: #fff;
+        font-weight: 400;
+        color: #D05A68;
+        font-size: 16px;
+        min-width: 100px;
+        padding: 8px 16px;
+        border-radius: 16px;
+        box-shadow: 0px 0px 4px 5px rgba(208, 90, 104, 0.1)
+    }
+}
+.back-button-md{
+    position: absolute;    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 2;
+}
+ion-app.md [padding]{
+    .scroll-content{
+        padding: 16px!important;
+    }
+}
+
+.fixed-content,.scroll-content{
+    margin-top: 130px!important;
+}
+
+.user-info{
+    margin-top: 25px;
+    color: #fff;
+    h1{
+        margin: 0 0 5px 0;
+        text-transform: uppercase;
+        font-size: 20px;
+        font-weight: 400;
+    }
+    h6{
+        margin: 0;
+        font-size: 12px;
+        font-weight: 400;
+    }
+}
+.user-icon{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    z-index: 2;
+    img{
+        border:1px solid #ccc;
+        border-radius: 100%;
+        padding: 2px;
+    }
+}
+.alert-wrapper{
+   padding:50px 15px 15px;
+   border-radius: 8px!important;
+   contain: unset;
+   &:before{
+        background: url('../assets/imgs/person-icon.png') no-repeat 0 0;
+        width: 60px;
+        height:60px;
+        border-radius: 100%;
+        border: 2px solid #fff;
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -30px;
+        margin: 0 auto;
+   }
+    .alert-title{
+        font-size: 18px;
+        color:#D05A68;
+        font-weight: 400;
+    }
+    .alert-sub-title{
+        font-size:13px;
+        color:#000;
+        margin-bottom: 15px;
+    }
+}
+.alert-md{
+    .alert-head{
+        text-align: center;
+        padding: 0;
+    }
+    .alert-button-group{
+        justify-content: center;
+        padding: 8px 10px;
+    }
+}
+.alert-button-group{
+    text-align: center;
+    .alert-button{  
+        font-size: 13px;
+        height:30px;
+        padding: 0 15px;
+        font-weight: 400;
+        border-radius: 34px;
+        display: inline-block; 
+      
+        &:last-child{
+            color:#D05A68;
+            border:1px solid #D05A68;
+            margin-right:0;
+        }
+        &:first-child{
+            color:#fff;
+            background: #D05A68;
+            border:none;
+        }
+    }
+}
+
+.hide-btn{
+    page-report-emergency{
+        .fixed-content, .scroll-content{
+            margin-top: 90px!important;
+            &  > .grid{
+                display: none;
+            }
+        }
+    }
+}

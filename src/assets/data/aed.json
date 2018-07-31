@@ -1,0 +1,39 @@
+[
+  {
+    "latitude": 28.45595,
+    "longitude": 77.0266,
+    "name": "AED001",
+    "status": "available"
+  },
+  {
+    "latitude": 28.45615,
+    "longitude": 77.0286,
+    "name": "AED002",
+    "status": "unavailable"
+
+  },
+  {
+    "latitude": 28.45635,
+    "longitude": 77.0306,
+    "name": "AED003",
+    "status": "available"
+  },
+  {
+    "latitude": 28.45655,
+    "longitude": 77.0326,
+    "name": "AED004",
+    "status": "unavailable"
+  },
+  {
+    "latitude": 28.45675,
+    "longitude": 77.0346,
+    "name": "AED005",
+    "status": "available"
+  },
+  {
+    "latitude": 28.45695,
+    "longitude": 77.0366,
+    "name": "AED006",
+    "status": "available"
+  }  
+]

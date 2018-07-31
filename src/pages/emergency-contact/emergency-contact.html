@@ -6,9 +6,12 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>emergencyContact</ion-title>
+  <ion-navbar text-center>
+    <ion-title>Emergency Contact</ion-title>
   </ion-navbar>
+  <div class="user-icon">
+      <img alt="Rogers" src="assets/imgs/people-icon.png" width="60">
+    </div>
 
 </ion-header>
 
@@ -54,7 +57,7 @@
         </ion-item>
        <ion-row>
         <ion-col center text-center>
-          <button ion-button full color="lightText" [disabled]="!emergencyContactForm.form.valid" (click)="save()">Save</button>
+          <button icolor="default" ion-button full round color="light" [disabled]="!emergencyContactForm.form.valid" (click)="save()">Save</button>
         </ion-col>
       </ion-row>
     </ion-list>

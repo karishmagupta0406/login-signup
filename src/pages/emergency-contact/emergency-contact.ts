@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, AlertController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { AuthServiceProvider } from '../../providers/auth.service';
 /**
@@ -18,8 +18,8 @@ export class EmergencyContactPage {
    userEmail = '';
    medicalHistorySaved = false;
 
-  emergencyContact1 = { name: 'karishma gupta', email: 'karishma.gupta@test.com', mobile:'9876543210'};
-  emergencyContact2 ={ name: 'Charu Gupta', email: 'charu.gupta@test.com' , mobile: '1234567809' };
+  emergencyContact1 = { name: '', email: '', mobile:''};
+  emergencyContact2 ={ name: '', email: '' , mobile: '' };
 
   constructor(private navCtrl: NavController, 
               private storage: Storage, 

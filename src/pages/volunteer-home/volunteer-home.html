@@ -1,40 +1,91 @@
 <ion-header>
-    <ion-navbar hideBackButton="true">
-      <ion-title>Volunteer Home page test</ion-title>
-      <ion-buttons end>
-        <button ion-button icon-only (click)="notifications()">
-          <ion-icon name="notifications"></ion-icon>
-          <ion-badge id="cart-badge">260k</ion-badge>
-        </button>
+  <ion-navbar hideBackButton="true" text-center>
+    <!-- <ion-title>{{firstName}}</ion-title> -->
+    <div class="user-info">
+      <h1>{{firstName}}</h1>
+      <h6>{{username}}</h6>
+    </div>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="notifications()">
+        <ion-icon name="notifications"></ion-icon>
+        <ion-badge id="cart-badge">{{badgeCount}}</ion-badge>
+      </button>
+      <button ion-button icon-only (click)="personalInfo()">
+        <ion-icon name="person"></ion-icon>
+      </button>
 
-      </ion-buttons>
-    </ion-navbar>
-    <!-- <ion-navbar hideBackButton="true">
-      <ion-title>Volunteer Home page</ion-title>
-    </ion-navbar>
-   -->
-  </ion-header>
-  
-  
-  <ion-content padding>
-      <ion-card (click)="personalInfo()">
+    </ion-buttons>
+  </ion-navbar>
+  <div class="user-icon">
+    <img alt="Rogers" src="assets/imgs/person-icon.png" width="60">
+  </div>
+</ion-header>
+
+
+<ion-content padding class="hide-btn">
+  <ion-row>
+    <ion-col width-33>
+      <ion-card (click)="getAedList()" style="height: 130px;">
         <ion-card-header>
-          <ion-icon name="document" color="buttonColor"></ion-icon>
+          <!-- <ion-icon name="contacts" color="orangeColor"></ion-icon> -->
+          <ion-img width="50" height="50" src="assets/imgs/aed-list.png"></ion-img>
         </ion-card-header>
-  
+
         <ion-card-content>
-          personal information
-        </ion-card-content>    
+          AED's List
+        </ion-card-content>
       </ion-card>
-  
-      <ion-card (click)="reportEmergency()">
+    </ion-col>
+
+    <ion-col width-33>
+      <ion-card style="height: 130px;">
         <ion-card-header>
-          <ion-icon name="medical" color="alertColor"></ion-icon>
+          <!-- <ion-icon name="filing" color="greenColor"></ion-icon> -->
+          <ion-img width="50" height="50" src="assets/imgs/life-saved.png"></ion-img>
         </ion-card-header>
-            
-        <ion-card-content>
-          Report Emergency
-          </ion-card-content>
+
+        <ion-card-content text-center>
+          No. of life saved
+          <h4 style="font-weight:bold; color: green;">10</h4>
+        </ion-card-content>
       </ion-card>
-  </ion-content>
-  
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col width-33>
+      <ion-card style="height: 130px;">
+        <ion-card-header>
+          <!-- <ion-icon name="medkit" color="orangeColor"></ion-icon> -->
+          <ion-img width="50" height="50" src="assets/imgs/cases.png"></ion-img>
+        </ion-card-header>
+
+        <ion-card-content text-center>
+          No. of cases
+          <h4 style="font-weight:bold; color: orange;">46</h4>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+
+    <ion-col width-33>
+      <ion-card style="height: 130px;" *ngIf="isEmergencyAccepted" (click)="lifeSaved()">
+        <ion-card-header>
+          <!-- <ion-icon name="medkit" color="orangeColor"></ion-icon> -->
+          <ion-img width="50" height="50" src="assets/imgs/help.png"></ion-img>
+        </ion-card-header>
+
+        <ion-card-content text-center>
+          Help Done
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+    
+  </ion-row>
+
+  <!-- <ion-row>
+    <button ion-button icon-only *ngIf="isMap" (click)="showMap()">
+      <ion-icon name="navigate" color="buttonColor"></ion-icon>
+    </button>
+  </ion-row> -->
+  <page-report-emergency></page-report-emergency>
+</ion-content>

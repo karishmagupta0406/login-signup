@@ -4,11 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HttpModule } from '@angular/http';
-import { } from 'ionic-na'
+// import { } from 'ionic-na';
 import { FCM } from '@ionic-native/fcm';
 import { Vibration } from '@ionic-native/vibration';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { Device } from '@ionic-native/device';
+import { BackgroundMode } from '@ionic-native/background-mode';
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -25,17 +26,21 @@ import { MedicalHistoryPage } from '../pages/medical-history/medical-history';
 import { PersonalInfoPage } from '../pages/personal-info/personal-info';
 import { NotificationsPage } from '../pages/notifications/notifications';
 import { MapPage } from '../pages/map/map';
+import { AedlistPage } from '../pages/aedlist/aedlist'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthServiceProvider } from '../providers/auth.service';
 import { Geolocation } from '@ionic-native/geolocation';
 import { IonicStorageModule } from '@ionic/storage';
-import { MqttModule,MqttService } from 'ngx-mqtt';
+import { MqttModule, MqttService } from 'ngx-mqtt';
+import { Badge } from '@ionic-native/badge';
+import { UtiliesProvider } from '../providers/Utilies';
+import { MqttServiceProvider } from '../providers/mqtt-service/mqtt-service';
 
 export const MQTT_SERVICE_OPTIONS = {
-  hostname: 'broker.hivemq.com',
-  port: 8000,
+  hostname: '10.97.47.10',
+  port: 9001,
   path: '/mqtt'
 };
 
@@ -61,7 +66,8 @@ export function mqttServiceFactory() {
     MedicalHistoryPage,
     PersonalInfoPage,
     NotificationsPage,
-    MapPage
+    MapPage,
+    AedlistPage
   ],
   imports: [
     BrowserModule,
@@ -90,7 +96,8 @@ export function mqttServiceFactory() {
     MedicalHistoryPage,
     PersonalInfoPage,
     NotificationsPage,
-    MapPage
+    MapPage,
+    AedlistPage
   ],
   providers: [
     StatusBar,
@@ -101,8 +108,12 @@ export function mqttServiceFactory() {
     AuthServiceProvider,
     Vibration,
     Device,
+    BackgroundMode,
     LocalNotifications,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    Badge,
+    UtiliesProvider,
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    MqttServiceProvider
   ]
 })
-export class AppModule {}
+export class AppModule { }

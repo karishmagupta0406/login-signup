@@ -29,3 +29,8 @@ self.toolbox.router.any('/*', self.toolbox.fastest);
 // for any other requests go to the network, cache,
 // and then only use that cached resource if your user goes offline
 self.toolbox.router.default = self.toolbox.networkFirst;
+
+
+// setInterval( function() {
+//   console.log(" am in service worker");
+// },1000);

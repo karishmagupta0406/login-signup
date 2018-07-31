@@ -1,24 +1,18 @@
-<ion-content padding id="welcome">
-  <img src="assets/imgs/rogers-logo.png" class="logo"/>
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <h1>Welcome to Roger's Emergency Application</h1>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+<ion-header>
 
-  <ion-grid >
-    <ion-row>
-      <ion-col center text-center>
-        <button ion-button full color="success" (click)="signup()">Sign up</button>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col center text-center>
-        <button ion-button full color="lightprimary" (click)="login()">Log in</button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <ion-navbar hideBackButton="true">
+    <ion-title>
+      <div class="logo text-center">
+        <img src="assets/imgs/logo-small.png" alt="Rogers" width="60"/>
+      </div>
+    </ion-title>
+  </ion-navbar>
+  
+</ion-header>
+
+<ion-content padding id="welcome">
+ 
+  <page-report-emergency></page-report-emergency>
+  
 </ion-content>
  

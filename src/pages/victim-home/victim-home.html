@@ -1,101 +1,57 @@
 <ion-header>
-
-  <ion-navbar hideBackButton="true">
-    <ion-title>Victim Home page</ion-title>
-  </ion-navbar>
-
+    <ion-navbar hideBackButton="true" text-center>
+        <div class="user-info">
+            <h1>{{firstName}}</h1>
+            <h6>{{username}}</h6>
+          </div>
+    </ion-navbar>
+ 
+      <div class="user-icon">
+          <img alt="Rogers" src="assets/imgs/person-icon.png" width="60">
+      </div>
 </ion-header>
 
 
-<ion-content padding>
-    <div ion-row>
-        <div ion-col width-50 (click)="personalInfo()">
-            <ion-card style="height: 130px;">
-                <ion-card-header>
-                  <ion-icon name="document" color="buttonColor"></ion-icon>
-                </ion-card-header>
-                  
-                <ion-card-content>
-                  personal information
-                </ion-card-content>    
-              </ion-card>          
-        </div>
+<ion-content class="hide-btn">
+  <ion-row>
+    <ion-col width-33 (click)="personalInfo()">
+      <ion-card style="height: 130px;">
+        <ion-card-header>
+          <!-- <ion-icon name="document" color="buttonColor"></ion-icon> -->
+          <ion-img width="50" height="50" src="assets/imgs/personal-info.png"></ion-img>
+        </ion-card-header>
 
-        <div ion-col width-50>
-            <ion-card (click)="medicalHistory()" style="height: 130px;">
-                <ion-card-header>
-                  <ion-icon name="medkit" color="greenColor"></ion-icon>
-                </ion-card-header>
-                      
-                <ion-card-content>
-                  Medical History
-                </ion-card-content>     
-              </ion-card>          
-        </div>
-    </div>
-    <div ion-row>
-        <div ion-col width-50>
-            <ion-card (click)="emergencyContact()" style="height: 130px;">
-                <ion-card-header>
-                    <ion-icon name="contacts" color="orangeColor"></ion-icon>
-                </ion-card-header>
-                        
-                <ion-card-content>
-                  Emergency Contact
-                </ion-card-content>
-              </ion-card>          
-        </div>
-
-        <div ion-col width-50>
-            <ion-card (click)="reportEmergency()" style="height: 130px;">
-                <ion-card-header>
-                  <ion-icon name="medical" color="alertColor"></ion-icon>
-                </ion-card-header>
-                    
-                <ion-card-content>
-                  Report Emergency
-                  </ion-card-content>
-              </ion-card>
-        </div>
-    </div>
-
-    <!-- <ion-card>
-      <ion-card-header>
-        <ion-icon name="document" color="buttonColor"></ion-icon>
-      </ion-card-header>
-        
-      <ion-card-content>
-        personal information
-      </ion-card-content>    
-    </ion-card>
-
-    <ion-card (click)="medicalHistory()">
-      <ion-card-header>
-        <ion-icon name="medkit" color="greenColor"></ion-icon>
-      </ion-card-header>
-            
-      <ion-card-content>
-        Medical History
-      </ion-card-content>     
-    </ion-card>
-
-    <ion-card (click)="emergencyContact()">
-      <ion-card-header>
-          <ion-icon name="contacts" color="orangeColor"></ion-icon>
-      </ion-card-header>
-              
-      <ion-card-content>
-        Emergency Contact
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card (click)="reportEmergency()">
-      <ion-card-header>
-        <ion-icon name="medical" color="alertColor"></ion-icon>
-      </ion-card-header>
-          
-      <ion-card-content>
-        Report Emergency
+        <ion-card-content>
+          personal information
         </ion-card-content>
-    </ion-card> -->
+      </ion-card>
+    </ion-col>
+
+    <ion-col width-33>
+      <ion-card (click)="medicalHistory()" style="height: 130px;">
+        <ion-card-header>
+          <!-- <ion-icon name="medkit" color="greenColor"></ion-icon> -->
+          <ion-img width="50" height="50" src="assets/imgs/medical-history.png"></ion-img>
+        </ion-card-header>
+
+        <ion-card-content>
+          Medical History
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+
+    <ion-col width-33>
+      <ion-card (click)="emergencyContact()" style="height: 130px;">
+        <ion-card-header>
+          <ion-img width="50" height="50" src="assets/imgs/contact.png"></ion-img>
+          <!-- <ion-icon name="contacts" color="orangeColor"></ion-icon> -->
+        </ion-card-header>
+
+        <ion-card-content>
+          Emergency Contact
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <page-report-emergency></page-report-emergency>
 </ion-content>

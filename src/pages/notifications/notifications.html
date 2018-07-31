@@ -6,30 +6,40 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>notifications</ion-title>
+  <ion-navbar text-center>
+    <ion-title>Notifications</ion-title>
   </ion-navbar>
-
+  <div class="user-icon">
+    <img alt="Rogers" src="assets/imgs/notification.png" width="60">
+  </div>
 </ion-header>
 
 
 <ion-content padding>
-  	<ion-card *ngFor="let notification of notifications; let todoIndex=index">
-        <ion-row>
-            <ion-col>
-              <ion-item>
-                <h4 color="primary">{{notification}}</h4>
-              </ion-item>
-            </ion-col>
-            <ion-col >
-              <ion-item>
-                <button color="light" ion-button round (click)="loadMap(notification)">Accept</button>
-                <button ion-button color="energy" round (click)="archiveTodo(todoIndex)">Decline</button>
-              </ion-item>
-            </ion-col>
-          </ion-row>
-    </ion-card>
-    <!-- <div ion-row>
+  <ion-card *ngFor="let notification of notifications; let todoIndex=index">
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <h4 color="primary">{{notification.userid}}</h4>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <button color="light" ion-button round (click)="acceptEmergency(notification)">Accept</button>
+          <button ion-button color="energy" round (click)="archiveTodo(todoIndex)">Decline</button>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <ion-row *ngIf="notifications.length === 0">
+    <ion-col>
+      <h3>
+        No notifications!!
+      </h3>
+    </ion-col>
+  </ion-row>
+
+  <!-- <div ion-row>
       <div ion-col width-50>
           <ion-card (click)="emergencyContact()" style="height: 130px;">
               <ion-card-header>
