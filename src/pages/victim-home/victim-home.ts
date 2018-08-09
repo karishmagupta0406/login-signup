@@ -54,7 +54,7 @@ export class VictimHomePage {
         console.log('notification message', obj.messageType);
         //alert(obj.messageType);
         this.notificationsQueue.push(obj.userDetails);
-        alert(this.notificationsQueue.length);
+        //alert(this.notificationsQueue.length);
 
         this.localNotifications.schedule({
           title: obj.messageType,

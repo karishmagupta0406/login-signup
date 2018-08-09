@@ -5,11 +5,13 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AuthServiceProvider {
 
-    static readonly REGISTER_URL = "http://10.97.47.208:8081/erx/registerUser";
-    static readonly LOGIN_URL = "http://10.97.47.208:8081/erx/login";
-    static readonly EmergencyContact_URL = "http://10.97.47.208:8081/erx/registerEmergencyContacts";
-    static readonly aedDetails_URL = "http://10.97.47.208:8081/erxlocation/aedDetails";
-    static readonly lifeSaved_URL = "http://10.97.47.208:8081/erx/life";
+    static readonly REGISTER_URL = "http://10.97.47.10:8081/erx/registerUser";
+    static readonly LOGIN_URL = "http://10.97.47.10:8081/erx/login";
+    static readonly EmergencyContact_URL = "http://10.97.47.10:8081/erx/registerEmergencyContacts";
+    static readonly aedDetails_URL = "http://10.97.47.10:8081/erxlocation/aedDetails";
+    static readonly lifeSaved_URL = "http://10.97.47.10:8081/erx/life";
+    static readonly UserProfile_URL = "http://10.97.47.10:8081/erx/getUserProfile";
+    static readonly emergencyHistory_URL = "http://10.97.47.10:8081/erx/emergencyHistory";
 
     constructor(public http: Http) { }
     public register(credentials) {
@@ -47,6 +49,21 @@ export class AuthServiceProvider {
         headers.append("volunteerEmail", volunteer);
         headers.append("victimEmail", victim);
         return this.http.get(AuthServiceProvider.lifeSaved_URL, { headers: headers }).map(response => response.json());
+    }
+
+    public getUserProfile(id) {
+        let headers = new Headers();
+        headers.append("Content-Type", "application/json");
+        headers.append("email", id);
+        return this.http.get(AuthServiceProvider.UserProfile_URL, { headers: headers }).map(response => response.json());
+    }
+
+    public emergencyHistory(id) {
+        let headers = new Headers();
+        headers.append("Content-Type", "application/json");
+        headers.append("volunteerEmail", id);
+        headers.append("count", 'true');
+        return this.http.get(AuthServiceProvider.emergencyHistory_URL, { headers: headers }).map(response => response.json());
     }
 
 }

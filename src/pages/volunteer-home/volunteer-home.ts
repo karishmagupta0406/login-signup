@@ -32,6 +32,9 @@ export class VolunteerHomePage {
   obj: any;
   firstName: any;
   isEmergencyAccepted: boolean = false;
+  noOfLifeSaved: number = 0;
+  noOfCases: number = 0;
+  victimId: any;
 
   constructor(
     public navCtrl: NavController,
@@ -47,6 +50,8 @@ export class VolunteerHomePage {
     private acceptEmergencyService: MqttServiceProvider,
     private authService: AuthServiceProvider) {
 
+
+
     this.storage.get('username').then(value => {
       //this.firstName = value.name;
       this.firstName = value;
@@ -56,6 +61,14 @@ export class VolunteerHomePage {
     this.platform.ready().then(() => {
       this.storage.get('userid').then(value => {
         this.username = value;
+        this.authService.emergencyHistory(this.username).subscribe(data => {
+          console.log(data);
+          this.noOfLifeSaved = data.data;
+          this.noOfCases = data.data;
+        },
+          error => {
+            console.log("Error", error);
+          });
         this.topicName = this.username.substring(0, this.username.indexOf("@"));
         // this.topic = '/oneM2M/req/ID-CSE-01:C_'+this.topicName+'/xml';
         //this.topic = '/oneM2M/req/ID-CSE-01/ID-CSE-01:C_' + this.topicName + '/xml';
@@ -74,20 +87,23 @@ export class VolunteerHomePage {
             //this.showPopup(this.obj.userDetails.victimId, "300 m| 5 min away");
             let alert = this.alertCtrl.create({
               title: this.obj.userDetails.victimId,
-              subTitle: '300 m| 5 min away',
+              subTitle: 'please look for map for AED and Victim location',
               buttons: [
                 {
                   text: 'Accept',
                   handler: () => {
                     console.log('Buy clicked');
                     this.acceptEmergencyService.acceptEmergency(this.obj.userDetails.victimId);
-                    this.isEmergencyAccepted = true;
                   }
                 },
                 {
                   text: 'Decline',
                   role: 'cancel',
                   handler: () => {
+                    this.notificationsQueue.push(this.obj.userDetails);
+                    this.badge.increase(1).then(value => {
+                      this.badgeCount = value;
+                    })
                     console.log('Cancel clicked');
                   }
                 }
@@ -95,14 +111,13 @@ export class VolunteerHomePage {
             });
             alert.present();
             this.showNotification('Cardiac arrest alert', this.obj);
-            this.notificationsQueue.push(this.obj.userDetails);
             this.vibration.vibrate(2000);
             this.backgroundMode.wakeUp();
-            this.badge.increase(1).then(value => {
-              this.badgeCount = value;
-            })
+
           } else if (this.obj.messageType === 'GrpNotVolunteerDD' || this.obj.messageType === 'GrpNotVolunteerFA') {
             //this.showPopup(this.obj.userDetails.victimId, this.obj.message);
+            this.victimId = this.obj.victimDetails.userid;
+            console.log(this.victimId);
             let alert = this.alertCtrl.create({
               title: this.obj.userDetails.victimId,
               subTitle: this.obj.message,
@@ -123,6 +138,7 @@ export class VolunteerHomePage {
             this.showNotification(this.obj.message, this.obj);
             this.backgroundMode.wakeUp();
             this.vibration.vibrate(2000);
+            this.isEmergencyAccepted = true;
 
           }
 
@@ -202,12 +218,19 @@ export class VolunteerHomePage {
   }
 
   lifeSaved() {
-    let victimId = this.obj.userDetails.victimId;
+    //let victimId = this.obj.userDetails.victimId;
+    console.log("life saved victimId", this.victimId);
     console.log("volunteer ID", this.username);
-    console.log("victim ID", victimId);
-    this.authService.lifeSaved(this.username, victimId).subscribe(data => {
+    this.authService.lifeSaved(this.username, this.victimId).subscribe(data => {
       console.log("help done clicked now disable button");
-      this.isEmergencyAccepted = false;
+      console.log("after lifesaved called ", data);
+      if (data.status === "200") {
+        this.isEmergencyAccepted = false;
+        if (typeof (data.data) == 'number') {
+          this.noOfLifeSaved = data.data;
+          this.noOfCases = data.data;
+        }
+      }
     },
       error => {
         console.log("Error", error);

@@ -95,7 +95,7 @@ export class MapPage {
                         console.log("map page", snap_path);
                         this.generatePath(snap_path);
                         this.makeMarker(leg.start_location, this.icons.start, "Volunteer", this.map);
-                        this.makeMarker(leg.end_location, this.icons.aed, 'Victim', this.map);
+                        this.makeMarker(leg.end_location, this.icons.end, 'Victim', this.map);
                     } else {
                         console.log('error');
                         console.warn(status);
@@ -177,17 +177,17 @@ export class MapPage {
 
     icons = {
         start: new google.maps.MarkerImage(
-            'assets/imgs/flag-blue.png',
+            'assets/imgs/volunteer.png',
             new google.maps.Size(44, 32),
             new google.maps.Point(0, 0),
             new google.maps.Point(22, 32)),
         end: new google.maps.MarkerImage(
-            'assets/imgs/flag-red.png',
+            'assets/imgs/heart-patient.png',
             new google.maps.Size(44, 32),
             new google.maps.Point(0, 0),
             new google.maps.Point(22, 32)),
         aed: new google.maps.MarkerImage(
-            'assets/imgs/flag-green.png',
+            'assets/imgs/aed-marker.png',
             new google.maps.Size(44, 32),
             new google.maps.Point(0, 0),
             new google.maps.Point(22, 32))

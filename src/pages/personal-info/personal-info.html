@@ -21,22 +21,22 @@
             
                 <ion-item>
                     <ion-label color="primary" floating>Name: </ion-label>
-                    <ion-input type="text" placeholder="Name" name="name" required></ion-input>
+                    <ion-input type="text" placeholder="Name" name="name" required [(ngModel)]="user.name"></ion-input>
                 </ion-item>
       
                 <ion-item>
                     <ion-label color="primary" floating>Email: </ion-label>
-                    <ion-input type="email" placeholder="Email" name="email"  required></ion-input>
+                    <ion-input type="email" placeholder="Email" name="email" [(ngModel)]="user.email" required></ion-input>
                 </ion-item>
                 
                 <ion-item>
                         <ion-label color="primary" floating>Mobile: </ion-label>
-                        <ion-input type="tel" placeholder="Mobile" name="mobileNumber" required></ion-input>
+                        <ion-input type="tel" placeholder="Mobile" name="mobileNumber" [(ngModel)]="user.mobileNumber" required></ion-input>
                 </ion-item>
   
                 <ion-item>
                     <ion-label color="primary" floating>Address: </ion-label>
-                    <ion-input type="text" placeholder="Address" name="Address" required></ion-input>
+                    <ion-input type="text" placeholder="address" name="address"  [(ngModel)]="user.address" required></ion-input>
                 </ion-item>
     
           

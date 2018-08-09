@@ -35,15 +35,19 @@ export class AedlistPage {
   // }
 
   displayGoogleMap() {
-    let latLng = new google.maps.LatLng(28.45595, 77.0266);
-
+    //let latLng = new google.maps.LatLng(28.45595, 77.0266);
+    this.geolocation.getCurrentPosition({ maximumAge: 3000, timeout: 5000, enableHighAccuracy: true }).then((resp) => {
+    let mylocation = new google.maps.LatLng(resp.coords.latitude, resp.coords.longitude);
     let mapOptions = {
-      center: latLng,
+      center: mylocation,
       disableDefaultUI: true,
       zoom: 17,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
     this.map = new google.maps.Map(this.mapContainer.nativeElement, mapOptions);
+  });
+
+   
   }
 
   getMarkers() {
@@ -75,10 +79,10 @@ export class AedlistPage {
     for(let marker of markers) {
       console.log("aed list ... adding marker on map", JSON.stringify(marker, marker.lng, marker.lng));
       var position = new google.maps.LatLng(marker.lat, marker.lng);
-      if(marker.available){
-        var dogwalkMarker = new google.maps.Marker({position: position, title: marker.name,icon: 'assets/imgs/aed.png'});
+      if(marker.aedStatus === 'Enabled'){
+        var dogwalkMarker = new google.maps.Marker({position: position, title: marker.name,icon: 'assets/imgs/flag-blue.png'});
       } else {
-        var dogwalkMarker = new google.maps.Marker({position: position, title: marker.name,icon: 'assets/imgs/aed-unavaiable.png'});
+        var dogwalkMarker = new google.maps.Marker({position: position, title: marker.name,icon: 'assets/imgs/flag-red.png'});
       }
       dogwalkMarker.setMap(this.map);
     }

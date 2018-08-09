@@ -46,7 +46,7 @@
 
         <ion-card-content text-center>
           No. of life saved
-          <h4 style="font-weight:bold; color: green;">10</h4>
+          <h4 style="font-weight:bold; color: green;">{{noOfLifeSaved}}</h4>
         </ion-card-content>
       </ion-card>
     </ion-col>
@@ -62,13 +62,13 @@
 
         <ion-card-content text-center>
           No. of cases
-          <h4 style="font-weight:bold; color: orange;">46</h4>
+          <h4 style="font-weight:bold; color: orange;">{{noOfCases}}</h4>
         </ion-card-content>
       </ion-card>
     </ion-col>
 
-    <ion-col width-33>
-      <ion-card style="height: 130px;" *ngIf="isEmergencyAccepted" (click)="lifeSaved()">
+    <ion-col width-33 *ngIf = "isEmergencyAccepted">
+      <ion-card style="height: 130px;" (click)="lifeSaved()">
         <ion-card-header>
           <!-- <ion-icon name="medkit" color="orangeColor"></ion-icon> -->
           <ion-img width="50" height="50" src="assets/imgs/help.png"></ion-img>
